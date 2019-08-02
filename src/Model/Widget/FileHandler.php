@@ -1,6 +1,8 @@
 <?php
 
-namespace Dcabrejas\WidgetFileUploader\Plugin\Widget;
+declare(strict_types=1);
+
+namespace Dcabrejas\WidgetFileUploader\Model\Widget;
 
 use Magento\Framework\Exception\LocalizedException;
 use Magento\Widget\Model\Widget\Instance;
@@ -8,9 +10,8 @@ use Magento\Framework\App\Filesystem\DirectoryList;
 use Magento\Framework\Filesystem;
 use Magento\MediaStorage\Model\File\UploaderFactory;
 use Magento\Framework\Filesystem\Directory\WriteFactory;
-use Dcabrejas\WidgetFileUploader\Model\Widget\WidgetFieldManager;
 
-class FileHandlerPlugin
+class FileHandler
 {
     /**
      * @var string
@@ -69,7 +70,7 @@ class FileHandlerPlugin
      * @param Instance $widgetInstance
      * @throws LocalizedException
      */
-    public function beforeBeforeSave(Instance $widgetInstance)
+    public function handleBeforeSave(Instance $widgetInstance)
     {
         if ($widgetInstance->getCode() !== $this->widgetCode) {
             return;
@@ -109,7 +110,7 @@ class FileHandlerPlugin
      * @param Instance $widgetInstance
      * @throws \Magento\Framework\Exception\LocalizedException
      */
-    public function beforeAfterSave(Instance $widgetInstance)
+    public function handleAfterSave(Instance $widgetInstance)
     {
         if ($widgetInstance->getCode() !== $this->widgetCode) {
             return;
@@ -146,3 +147,4 @@ class FileHandlerPlugin
         return isset($_FILES[$this->fieldName]['name']) && !empty($_FILES[$this->fieldName]['name']);
     }
 }
+
