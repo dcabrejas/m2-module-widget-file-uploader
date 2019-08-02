@@ -1,0 +1,19 @@
+{
+  "name": "dcabrejas/m2-module-widget-file-uploader",
+  "description": "Widget File Uploader Field for M2",
+  "type": "magento2-module",
+  "require": {
+    "magento/framework": "*",
+    "magento/module-backend": "*",
+    "magento/module-widget": "*",
+    "magento/module-media-storage": "*"
+  },
+  "autoload": {
+    "files": [
+      "src/registration.php"
+    ],
+    "psr-4": {
+      "Dcabrejas\\WidgetFileUploader\\": "src/"
+    }
+  }
+}
