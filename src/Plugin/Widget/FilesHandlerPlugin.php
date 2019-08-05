@@ -3,7 +3,7 @@
 namespace Dcabrejas\WidgetFileUploader\Plugin\Widget;
 
 use Dcabrejas\WidgetFileUploader\Model\Widget\FileHandler;
-use Dcabrejas\WidgetFileUploader\Model\Widget\WidgetFieldManager;
+use Magento\Widget\Model\Widget\Instance;
 
 class FilesHandlerPlugin
 {
